@@ -1,0 +1,98 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  :root { --teal:#0F766E; --teal-xl:#F0FDFA; --teal-l:#99F6E4; --orange:#C2410C; --orange-xl:#FFF7ED; --orange-l:#FED7AA;
+          --slate:#334155; --mute:#64748B; --line:#E2E8F0; --ink:#0F172A; }
+  * { box-sizing:border-box; }
+  body { margin:0; width:180mm; font-family:Inter, sans-serif; color:var(--slate); background:#fff; }
+  .page { padding:2.5mm; }
+  .row { display:grid; gap:2.2mm; margin-bottom:2.2mm; align-items:stretch; }
+  .card { border:1px solid var(--line); border-radius:7px; padding:2mm 2.4mm; background:#fff; position:relative; }
+  .hd { display:flex; align-items:center; gap:1.6mm; margin-bottom:1.4mm; }
+  .num { flex:none; width:19px; height:19px; border-radius:50%; background:var(--teal); color:#fff; font-size:10.9px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .num.o { background:var(--orange); } .num.k { background:var(--ink); }
+  .ttl { font-size:11.7px; font-weight:800; color:var(--ink); }
+  .sub { font-size:8.5px; color:var(--mute); margin-left:auto; text-align:right; }
+  .note { font-size:7.9px; color:var(--mute); margin-top:1mm; }
+  table.mx { border-collapse:separate; border-spacing:0; font-size:7.9px; font-variant-numeric:tabular-nums; }
+  table.mx td { text-align:center; padding:0; width:17px; height:13px; line-height:13px; }
+  table.mx th.cl { font-size:6.8px; font-weight:600; color:var(--mute); padding:0 0 1px 0; line-height:1.05; }
+  table.mx th.rl { font-size:7.9px; font-weight:700; color:var(--ink); text-align:right; padding-right:3px; }
+  table.xm td { color:#fff; font-weight:700; border:0.5px solid #fff; }
+  table.xm td[style*="F1F5F9"] { color:#94A3B8; } table.xm td[style*="99F6E4"] { color:#0F766E; }
+  table.gm td { width:27px; color:var(--ink); border:0.5px solid #fff; }
+  table.met td { width:25px; } table.met td.ym, table.met th.ym { background:#FFF7ED; color:var(--orange); font-weight:800; }
+  table.met th.cl { font-size:7.1px; }
+  /* bracketed matrices in the model */
+  .eq { display:flex; align-items:center; gap:1.4mm; flex-wrap:nowrap; }
+  .eq .op { font-family:"STIX Two Text", Cambria, serif; font-size:14.9px; color:var(--ink); }
+  .eq .sym { font-family:"STIX Two Text", Cambria, serif; font-size:13.8px; color:var(--ink); font-style:italic; }
+  .bm { display:flex; flex-direction:column; align-items:center; }
+  .bm .lab { font-family:"STIX Two Text", Cambria, serif; font-size:12.6px; font-weight:700; color:var(--ink); margin-top:.4mm; }
+  .bm .lab i { font-weight:700; } .bm .dim { font-size:6.7px; color:var(--mute); }
+  .br { border-left:1.2px solid var(--ink); border-right:1.2px solid var(--ink); border-radius:3px; padding:0 1.5px; }
+  table.vec td { width:28px; }
+  table.sm td { width:13px; height:13px; font-size:7.4px; }
+  table.gm.sm td { width:24px; }
+  td.dots { color:var(--mute); line-height:6px !important; height:7px !important; }
+  .formula { font-family:"STIX Two Text", Cambria, serif; font-size:13.8px; color:var(--ink); line-height:1.5; }
+  .formula b { font-weight:700; }
+  .pill { display:inline-block; border-radius:9px; padding:.5mm 2mm; font-size:8.5px; font-weight:800; color:#fff; }
+  .branch { border-radius:7px; padding:1.8mm 2mm; }
+  .b1 { background:var(--teal-xl); border:1px solid var(--teal-l); }
+  .b2 { background:#F8FAFC; border:1px solid #CBD5E1; }
+  .bt { font-size:10.3px; font-weight:800; margin-bottom:1mm; }
+  .out { display:flex; align-items:center; gap:2mm; margin-top:1.2mm; }
+  .arrowdown { text-align:center; font-size:12.6px; color:var(--mute); line-height:1; margin:.6mm 0; }
+  .ex { background:var(--orange-xl); border:1px solid var(--orange-l); border-radius:6px; padding:1.4mm 2mm; font-size:8.6px; line-height:1.45; }
+  .ex b { color:var(--ink); }
+  .ex .big { font-family:"STIX Two Text", Cambria, serif; font-size:12.1px; color:var(--ink); }
+  .conn { display:flex; align-items:center; justify-content:center; color:var(--mute); font-size:20.7px; }
+  .lbl { font-size:8.3px; color:var(--mute); font-weight:600; margin-bottom:.6mm; }
+</style></head>
+<body><div class="page">
+
+<!-- ROW 1 : population, genotyping -->
+<div class="row" style="grid-template-columns: 0.92fr 6mm 1.08fr;">
+  <div class="card">
+    <div class="hd"><span class="num">A</span><span class="ttl">Create a breeding population</span></div>
+    <div class="lbl">8 crosses between elite parents; selfing by single-seed descent fixes the lines</div>
+    {{S1}}
+  </div>
+  <div class="conn">➜</div>
+  <div class="card">
+    <div class="hd"><span class="num">B</span><span class="ttl">Genotype every line</span><span class="sub">marker matrix <b>X</b></span></div>
+    <div class="lbl">Rows are lines, columns are SNPs; each cell counts copies of one allele</div>
+    {{S2}}
+    <div class="note" style="margin-top:2mm">F5 lines are nearly homozygous, so most cells are 0 or 2; the few 1s are residual heterozygosity.</div>
+  </div>
+</div>
+
+<!-- ROW 2 : G matrix and training set -->
+<div class="card" style="margin-bottom:2.2mm">
+  <div class="hd"><span class="num">C</span><span class="ttl">Measure relationships and choose a training set</span><span class="sub">only the training set goes to the field</span></div>
+  <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:3mm; align-items:start">
+    <div>
+      <div class="formula"><b>W</b> = <b>X</b> − 2<b>P</b> &nbsp;<span style="font-size:9.2px;color:#64748B;font-family:Inter">(center each SNP on its frequency <i>p</i>)</span><br>
+      <b>G</b> = <b>WW</b><sup>T</sup> / 2Σ<i>p</i>(1 − <i>p</i>)</div>
+      <div class="lbl" style="margin-top:1.2mm">Genomic relationship matrix <b>G</b> (6 of {{N}} lines)</div>
+      {{S3G}}
+      <div class="note">Diagonal ≈ 2 because inbred lines carry two identical copies (1 + <i>F</i>); off-diagonals: more alleles shared than average (green) or fewer (orange).</div>
+    </div>
+    <div>
+      <div class="lbl">Population structure (PCA of <b>W</b>): eight crosses, training set drawn from all</div>
+      {{S3P}}
+    </div>
+  </div>
+</div>
+
+<!-- ROW 3 : field -->
+<div class="card" style="margin-bottom:2.2mm">
+  <div class="hd"><span class="num">D</span><span class="ttl">Grow the training set in multi-location trials</span><span class="sub">{{NT}} lines × 3 locations × 2 replicates; trait: grain yield</span></div>
+  <div style="display:grid; grid-template-columns: 0.75fr 1.25fr; gap:3mm; align-items:center">
+    <div>{{S4F}}</div>
+    <div>{{S4T}}<div class="note">Plot yields (t ha<sup>−1</sup>) and the adjusted line mean <i style="color:#C2410C"><b>y</b></i> that enters the model.</div></div>
+  </div>
+</div>
+
+</div></body></html>
