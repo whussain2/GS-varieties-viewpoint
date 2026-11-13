@@ -1,13 +1,13 @@
 # ------------------------------------------------------------------
-# Repeat the Figure 2 simulation 100 times
+# Box 1 statistics: repeat a simulated GBLUP programme 100 times
 #
-# Figure 2 shows ONE simulated breeding programme. One run can be lucky
+# Figs 1 and 2 show ONE simulated breeding programme. One run can be lucky
 # or unlucky, so here we repeat the whole thing (new parents, new crosses,
 # new field trial, new GBLUP fit) 100 times and average the results.
-# The numbers quoted in the Comment come from this script.
+# The numbers quoted in the Viewpoint come from this script.
 #
-# The steps inside the loop are the same as in Fig2_GBLUP_simulation.R,
-# written out again so each script runs on its own.
+# GBLUP is solved by hand from Henderson's mixed model equations so that
+# each step can be followed; the script runs on its own.
 # Plain base R + rrBLUP (only to estimate the two variances by REML).
 # ------------------------------------------------------------------
 

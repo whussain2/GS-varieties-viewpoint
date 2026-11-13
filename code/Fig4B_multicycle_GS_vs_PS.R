@@ -12,7 +12,7 @@
 #   (GS also pays for genotyping 200 lines per year.)
 #
 # Inbred crop with doubled-haploid (DH) lines; purely additive trait.
-# Answers three reviewer questions:
+# Questions addressed:
 #   - does rapid cycling still win once genetic variance and accuracy
 #     are allowed to erode?
 #   - what happens if the training set is not updated?

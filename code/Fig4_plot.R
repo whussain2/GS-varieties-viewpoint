@@ -7,6 +7,7 @@
 # Packages: ggplot2, patchwork
 # ==================================================================
 library(ggplot2); library(patchwork)
+dir.create("../figures", showWarnings = FALSE)
 fam <- "Inter"
 th <- theme_minimal(base_size = 8, base_family = fam) +
   theme(panel.grid.minor = element_blank(), panel.grid.major = element_line(colour = "#E2E8F0", linewidth = 0.3),
