@@ -1,0 +1,118 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  :root { --teal:#0F766E; --teal-xl:#F0FDFA; --teal-l:#99F6E4; --orange:#C2410C; --orange-xl:#FFF7ED; --orange-l:#FED7AA;
+          --slate:#334155; --mute:#64748B; --line:#E2E8F0; --ink:#0F172A; }
+  * { box-sizing:border-box; }
+  body { margin:0; width:180mm; font-family:Inter, sans-serif; color:var(--slate); background:#fff; }
+  .page { padding:2.5mm; }
+  .row { display:grid; gap:2.2mm; margin-bottom:2.2mm; align-items:stretch; }
+  .card { border:1px solid var(--line); border-radius:7px; padding:2mm 2.4mm; background:#fff; position:relative; }
+  .hd { display:flex; align-items:center; gap:1.6mm; margin-bottom:1.4mm; }
+  .num { flex:none; width:19px; height:19px; border-radius:50%; background:var(--teal); color:#fff; font-size:10.9px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .num.o { background:var(--orange); } .num.k { background:var(--ink); }
+  .ttl { font-size:11.7px; font-weight:800; color:var(--ink); }
+  .sub { font-size:8.5px; color:var(--mute); margin-left:auto; text-align:right; }
+  .note { font-size:7.9px; color:var(--mute); margin-top:1mm; }
+  table.mx { border-collapse:separate; border-spacing:0; font-size:7.9px; font-variant-numeric:tabular-nums; }
+  table.mx td { text-align:center; padding:0; width:17px; height:13px; line-height:13px; }
+  table.mx th.cl { font-size:6.8px; font-weight:600; color:var(--mute); padding:0 0 1px 0; line-height:1.05; }
+  table.mx th.rl { font-size:7.9px; font-weight:700; color:var(--ink); text-align:right; padding-right:3px; }
+  table.xm td { color:#fff; font-weight:700; border:0.5px solid #fff; }
+  table.xm td[style*="F1F5F9"] { color:#94A3B8; } table.xm td[style*="99F6E4"] { color:#0F766E; }
+  table.gm td { width:27px; color:var(--ink); border:0.5px solid #fff; }
+  table.met td { width:25px; } table.met td.ym, table.met th.ym { background:#FFF7ED; color:var(--orange); font-weight:800; }
+  table.met th.cl { font-size:7.1px; }
+  /* bracketed matrices in the model */
+  .eq { display:flex; align-items:center; gap:1.4mm; flex-wrap:nowrap; }
+  .eq .op { font-family:"STIX Two Text", Cambria, serif; font-size:14.9px; color:var(--ink); }
+  .eq .sym { font-family:"STIX Two Text", Cambria, serif; font-size:13.8px; color:var(--ink); font-style:italic; }
+  .bm { display:flex; flex-direction:column; align-items:center; }
+  .bm .lab { font-family:"STIX Two Text", Cambria, serif; font-size:12.6px; font-weight:700; color:var(--ink); margin-top:.4mm; }
+  .bm .lab i { font-weight:700; } .bm .dim { font-size:6.7px; color:var(--mute); }
+  .br { border-left:1.2px solid var(--ink); border-right:1.2px solid var(--ink); border-radius:3px; padding:0 1.5px; }
+  table.vec td { width:28px; }
+  table.sm td { width:13px; height:13px; font-size:7.4px; }
+  table.gm.sm td { width:24px; }
+  td.dots { color:var(--mute); line-height:6px !important; height:7px !important; }
+  .formula { font-family:"STIX Two Text", Cambria, serif; font-size:13.8px; color:var(--ink); line-height:1.5; }
+  .formula b { font-weight:700; }
+  .pill { display:inline-block; border-radius:9px; padding:.5mm 2mm; font-size:8.5px; font-weight:800; color:#fff; }
+  .branch { border-radius:7px; padding:1.8mm 2mm; }
+  .b1 { background:var(--teal-xl); border:1px solid var(--teal-l); }
+  .b2 { background:#F8FAFC; border:1px solid #CBD5E1; }
+  .bt { font-size:10.3px; font-weight:800; margin-bottom:1mm; }
+  .out { display:flex; align-items:center; gap:2mm; margin-top:1.2mm; }
+  .arrowdown { text-align:center; font-size:12.6px; color:var(--mute); line-height:1; margin:.6mm 0; }
+  .ex { background:var(--orange-xl); border:1px solid var(--orange-l); border-radius:6px; padding:1.4mm 2mm; font-size:8.6px; line-height:1.45; }
+  .ex b { color:var(--ink); }
+  .ex .big { font-family:"STIX Two Text", Cambria, serif; font-size:12.1px; color:var(--ink); }
+  .conn { display:flex; align-items:center; justify-content:center; color:var(--mute); font-size:20.7px; }
+  .lbl { font-size:8.3px; color:var(--mute); font-weight:600; margin-bottom:.6mm; }
+</style></head>
+<body><div class="page">
+
+<!-- ROW 4 : model -->
+<div class="card" style="margin-bottom:2.2mm">
+  <div class="hd"><span class="ttl">Fit a mixed model: two equivalent routes</span><span class="sub">variances by REML: σ²<sub>g</sub> = {{SG2}}, σ²<sub>e</sub> = {{SE2}}, λ = σ²<sub>e</sub>/σ²<sub>g</sub> = {{LAM}}</span></div>
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2.4mm">
+    <div class="branch b1">
+      <div class="bt" style="color:var(--teal)"><span class="num" style="display:inline-flex;margin-right:4px">A</span>Marker-effect model: RR-BLUP (or Bayesian, e.g. BayesB)</div>
+      <div class="eq">
+        <div class="bm"><div class="br">{{Y}}</div><div class="lab"><i>y</i></div></div>
+        <span class="op">=</span><span class="sym" style="font-style:normal"><b>1</b><i>μ</i></span><span class="op">+</span>
+        <div class="bm"><div class="br">{{XM}}</div><div class="lab"><i>X</i></div></div>
+        <div class="bm"><div class="br">{{BETA}}</div><div class="lab"><i>β</i></div><div class="dim">×10⁻³</div></div>
+        <span class="op">+</span><span class="sym"><b>e</b></span>
+      </div>
+      <div class="note" style="margin-top:.8mm"><i>β</i><sub>j</sub> ~ N(0, σ²<sub>β</sub>): every SNP gets an effect, all shrunk by the same amount (BayesB lets most shrink to zero).</div>
+      <div class="arrowdown">▼</div>
+      <div class="lbl" style="color:var(--teal)">Output 1: an estimated effect for every SNP ({{NSNP}} values)</div>
+      {{S5B}}
+      <div class="arrowdown">▼</div>
+      <div class="out"><span class="formula" style="font-size:12.1px">GEBV′ = (<b>X</b>β̂)′ =</span><div class="br">{{GRR}}</div></div><div class="note" style="margin-top:.6mm">Sum over all SNPs of allele count × effect, for every line, tested or not.</div>
+    </div>
+    <div class="branch b2">
+      <div class="bt" style="color:var(--ink)"><span class="num k" style="display:inline-flex;margin-right:4px">B</span>Relationship model: GBLUP</div>
+      <div class="eq">
+        <div class="bm"><div class="br">{{Y2}}</div><div class="lab"><i>y</i></div></div>
+        <span class="op">=</span><span class="sym" style="font-style:normal"><b>1</b><i>μ</i></span><span class="op">+</span><span class="sym"><b>Zg</b></span><span class="op">+</span><span class="sym"><b>e</b></span>
+        <div style="margin-left:2mm; font-family:'STIX Two Text',serif; font-size:12.1px; color:#0F172A; line-height:1.6"><i><b>g</b></i> ~ N(0, <b>G</b>σ²<sub>g</sub>)<br><i><b>e</b></i> ~ N(0, <b>I</b>σ²<sub>e</sub>)</div>
+      </div>
+      <div style="display:flex; gap:3mm; align-items:center; margin-top:1mm">
+        <div class="bm"><div class="br">{{GM}}</div><div class="lab"><i>G</i></div><div class="dim">from Fig. 1C</div></div>
+        <div>
+          <div class="lbl">Henderson's mixed model equations</div>
+          <div class="formula" style="font-size:11.5px">
+          <span style="display:inline-block; vertical-align:middle; border-left:1.2px solid #0F172A; border-right:1.2px solid #0F172A; border-radius:3px; padding:0 3px; line-height:1.45"><b>1</b>′<b>1</b> &nbsp;&nbsp;&nbsp; <b>1</b>′<b>Z</b><br><b>Z</b>′<b>1</b> &nbsp; <b>Z</b>′<b>Z</b> + <b>G</b><sup>−1</sup>λ</span>
+          <span style="display:inline-block; vertical-align:middle; border-left:1.2px solid #0F172A; border-right:1.2px solid #0F172A; border-radius:3px; padding:0 3px; line-height:1.45"><i>μ̂</i><br><b>ĝ</b></span> =
+          <span style="display:inline-block; vertical-align:middle; border-left:1.2px solid #0F172A; border-right:1.2px solid #0F172A; border-radius:3px; padding:0 3px; line-height:1.45"><b>1</b>′<i><b>y</b></i><br><b>Z</b>′<i><b>y</b></i></span>
+          </div>
+          <div class="note"><b>Z</b> links each record to its line.</div>
+        </div>
+      </div>
+      <div class="arrowdown">▼</div>
+      <div class="lbl" style="color:var(--ink)">Output 2: a breeding value for every line, ĝ ({{N}} values)</div><div class="out" style="margin-top:0"><span class="formula" style="font-size:12.1px">GEBV′ = <b>ĝ</b>′ =</span><div class="br">{{GGB}}</div></div><div class="note" style="margin-top:.6mm">Untested lines get values through their relationships in <b>G</b>.</div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:1.4mm"><span class="pill" style="background:var(--ink)">Same breeding values from both routes (r = 1.000); BayesB r = {{CORBB}}</span></div>
+</div>
+
+<!-- ROW 5 : rank & shrinkage -->
+<div class="card">
+  <div class="hd"><span class="num o">C</span><span class="ttl">Rank all lines and select parents</span><span class="sub">accuracy among never-tested lines: {{ACC}}</span></div>
+  <div style="display:grid; grid-template-columns: 1.2fr 0.85fr 0.8fr; gap:2.4mm; align-items:start">
+    <div>{{S6}}<div class="note"><span style="color:#C2410C">●</span> tested in the field &nbsp; ○ never tested (genotype only). Bars: 95% interval from the prediction error variance (PEV).</div></div>
+    <div><div class="lbl" style="display:flex;align-items:center;gap:4px"><span class="num o" style="width:17px;height:17px">D</span>Why breeding values are shrunk</div>{{S7}}</div>
+    <div class="ex">
+      <b>A breeding value is a shrunk mean.</b><br>
+      Line {{EXL}}: adjusted mean <b>{{EXY}}</b>, trial mean {{EXM}} t ha<sup>−1</sup>.<br>
+      <span class="big">BV = <i>h</i>² × ({{EXY}} − {{EXM}})<br>&nbsp;&nbsp;&nbsp;&nbsp; = {{H2}} × {{EXD}} = {{EXH}}</span><br>
+      <span style="color:#64748B">Lower <i>h</i>², stronger shrinkage towards the mean.</span><br><br>
+      <b>With G:</b> GBLUP gives {{EXL}} <b>{{EXG}}</b>, not {{EXH}}, because its relatives in the same cross also yielded well. Information from relatives adds to its own data.
+    </div>
+  </div>
+</div>
+
+
+</div></body></html>

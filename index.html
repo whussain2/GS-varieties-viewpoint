@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>Genomic selection does not make varieties | Code &amp; data | Dr. Waseem Hussain</title>
+  <meta name="description" content="Code and simulated data for the Viewpoint 'Counting varieties misjudges genomic selection: what it delivers, and when' by Waseem Hussain and Vinay Kumar Nandigam (PlantNura).">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b18">
+  <meta property="og:title" content="Genomic selection does not make varieties: code and data">
+  <meta property="og:description" content="What genomic selection delivers, and when. Simulations, figures and R code.">
+  <meta property="og:url" content="https://whussain2.github.io/GS-varieties-viewpoint/">
+  <meta name="twitter:site" content="@whussain907">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/founder.css">
+  <link rel="stylesheet" href="assets/css/project.css">
+  <link rel="icon" type="image/svg+xml" href="assets/img/plantnura-mark.svg">
+  <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js';</script>
+</head>
+<body class="founder-site">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="site-shell">
+  <div class="ambient ambient--violet" aria-hidden="true"></div>
+  <div class="ambient ambient--aqua" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="https://whussain2.github.io/" aria-label="Waseem Hussain, home">
+        <span class="brand__mark" aria-hidden="true">WH</span>
+        <span class="brand__text">Dr. Waseem Hussain</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle navigation">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+      <ul class="nav__links" id="primary-menu">
+        <li><a href="https://whussain2.github.io/#vision">Vision</a></li>
+        <li><a href="https://whussain2.github.io/#plantnura">PlantNura</a></li>
+        <li><a href="https://whussain2.github.io/#journey">Journey</a></li>
+        <li><a href="https://whussain2.github.io/publications/" aria-current="page">Research</a></li>
+        <li><a class="nav__github" href="https://github.com/whussain2/GS-varieties-viewpoint" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a></li>
+        <li><a class="nav__company" href="https://plantnura.com/" target="_blank" rel="noopener"><img src="assets/img/plantnura-mark.svg" alt="" width="20" height="20">Visit PlantNura ↗</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero proj-hero wrap" id="top">
+      <div class="hero__content reveal">
+        <p class="eyebrow">Research · Code &amp; data</p>
+        <h1>Genomic selection does not <strong>make varieties.</strong></h1>
+        <p class="hero__intro">It was never meant to. Its job is to <b>discard poor lines early</b>, using prediction from a mixed model that borrows information from relatives, and to <b>recycle better parents faster</b>. This repository holds every simulation, dataset and figure behind the argument.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="https://github.com/whussain2/GS-varieties-viewpoint" target="_blank" rel="noopener">
+            Browse the code
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+          <a class="button button--ghost" href="https://github.com/whussain2/GS-varieties-viewpoint/archive/refs/heads/main.zip">Download ZIP ↓</a>
+        </div>
+      </div>
+      <aside class="paper-card reveal">
+        <span class="paper-card__label">Viewpoint · Journal of Experimental Botany</span>
+        <h2>Counting varieties misjudges genomic selection: what it delivers, and when</h2>
+        <p><b style="color:var(--ink)">Waseem Hussain</b> and Vinay Kumar Nandigam</p>
+        <p>PlantNura Consulting &amp; Solutions LLP, Hyderabad, India</p>
+        <span class="status">Submitted · November 2026</span>
+      </aside>
+    </section>
+
+    <section class="message" id="argument">
+      <div class="message__grid wrap reveal">
+        <span class="section-index">01 · The argument</span>
+        <div>
+          <h2>The product of genomic selection is a better population, <span>delivered sooner. Varieties are drawn from it later, in the field.</span></h2>
+          <div class="points">
+            <div class="point"><span class="point__n">WHAT IT IS</span><b>A shrunk, uncertain prediction</b><span>A GEBV is a BLUP from a mixed model. Markers measure shared alleles, <i>G</i> turns them into covariance, and untested lines borrow information from tested relatives.</span></div>
+            <div class="point"><span class="point__n">WHAT IT DOES</span><b>Keeps a good set, discards the rest</b><span>Any imperfect predictor reliably removes poor lines but rarely picks the single best one. GS does this before a single plot is sown.</span></div>
+            <div class="point"><span class="point__n">WHERE IT BELONGS</span><b>Population improvement</b><span>Early recycling raised genetic gain to 2.6 vs 1.4 SD after four years. The improved population becomes the supply chain for product development.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="figures" id="figures">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-index">02 · The figures</span>
+            <h2>Every number comes from the code.</h2>
+          </div>
+          <p>Figures 1–3 are composed as HTML and SVG from the simulated data; Figure 4 is drawn in ggplot2. Click a figure for the full-resolution PDF.</p>
+        </div>
+        <div class="fig-grid">
+          <a class="fig-card reveal" href="figures/JXB_Fig1.pdf" target="_blank" rel="noopener">
+            <span class="fig-card__img"><img src="figures/JXB_Fig1.png" alt="Fig. 1: from eight crosses to 240 F5 lines, SNP genotypes, the G matrix with a CDmean training set, and multi-location yield data." loading="lazy"></span>
+            <span class="fig-card__body"><span class="fig-card__tag">Figure 1 · Box 1</span><h3>From a breeding population to field data</h3><p>Crosses, single-seed descent, the marker matrix, the genomic relationship matrix and the training set.</p><span class="fig-card__files"><span>PDF</span><span>PNG</span></span></span>
+          </a>
+          <a class="fig-card reveal" href="figures/JXB_Fig2.pdf" target="_blank" rel="noopener">
+            <span class="fig-card__img"><img src="figures/JXB_Fig2.png" alt="Fig. 2: RR-BLUP and GBLUP shown with real values, ranked GEBVs with intervals, and shrinkage with slope equal to heritability." loading="lazy"></span>
+            <span class="fig-card__body"><span class="fig-card__tag">Figure 2 · Box 1</span><h3>What genomic prediction returns</h3><p>Two equivalent model routes, ranked breeding values with their errors, and why breeding values are shrunk.</p><span class="fig-card__files"><span>PDF</span><span>PNG</span></span></span>
+          </a>
+          <a class="fig-card reveal" href="figures/JXB_Fig3.pdf" target="_blank" rel="noopener">
+            <span class="fig-card__img"><img src="figures/JXB_Fig3.png" alt="Fig. 3: alleles on chromosomes, recombination, rising favorable-allele frequencies, and the two engines of breeding." loading="lazy"></span>
+            <span class="fig-card__body"><span class="fig-card__tag">Figure 3 · Box 2</span><h3>Why population improvement</h3><p>The genetics behind selection, and population improvement as the supply chain for product development.</p><span class="fig-card__files"><span>PDF</span><span>PNG</span></span></span>
+          </a>
+          <a class="fig-card reveal" href="figures/JXB_Fig4.pdf" target="_blank" rel="noopener">
+            <span class="fig-card__img"><img src="figures/JXB_Fig4.png" alt="Fig. 4: selection curves showing a prediction keeps a good set but not the best line, and 20-year gain under GS versus phenotypic selection." loading="lazy"></span>
+            <span class="fig-card__body"><span class="fig-card__tag">Figure 4</span><h3>What genomic selection delivers</h3><p>A filter, not a selector, and faster gain from early recycling.</p><span class="fig-card__files"><span>PDF</span><span>PNG</span></span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="code" id="code">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-index">03 · The code</span>
+            <h2>Plain R you can read step by step.</h2>
+          </div>
+          <p>Base R for every simulation step, rrBLUP for REML and RR-BLUP, BGLR for BayesB, and Python with Playwright to render Figs 1–3.</p>
+        </div>
+        <table class="code-table reveal">
+          <thead><tr><th>Script</th><th>Reproduces</th><th>Writes</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://github.com/whussain2/GS-varieties-viewpoint/blob/main/code/Fig1_Fig2_simulate_program.R">code/Fig1_Fig2_simulate_program.R</a></td><td><b>Box 1, Figs 1–2.</b> One program from crosses to ranked GEBVs: SNPs, <i>G</i>, CDmean, multi-location trial, RR-BLUP, GBLUP, BayesB.</td><td>Fig1_data.json, Fig1_*.csv</td></tr>
+            <tr><td><a href="https://github.com/whussain2/GS-varieties-viewpoint/blob/main/code/Box1_100_replicate_programmes.R">code/Box1_100_replicate_programmes.R</a></td><td><b>Statistics in the text.</b> Shrinkage, reliability and realized accuracy across and within families in 100 programs.</td><td>Box1_100_replicates*.csv</td></tr>
+            <tr><td><a href="https://github.com/whussain2/GS-varieties-viewpoint/blob/main/code/Fig3C_allele_frequency_sim.R">code/Fig3C_allele_frequency_sim.R</a></td><td><b>Fig. 3C.</b> Favorable-allele frequencies under recurrent selection.</td><td>Fig3C_*.csv</td></tr>
+            <tr><td><a href="https://github.com/whussain2/GS-varieties-viewpoint/blob/main/code/Fig4A_selection_curves.R">code/Fig4A_selection_curves.R</a></td><td><b>Fig. 4A.</b> What selecting on a criterion of accuracy <i>r</i> keeps.</td><td>Fig4A_selection_curves.csv</td></tr>
+            <tr><td><a href="https://github.com/whussain2/GS-varieties-viewpoint/blob/main/code/Fig4B_multicycle_GS_vs_PS.R">code/Fig4B_multicycle_GS_vs_PS.R</a></td><td><b>Fig. 4B.</b> 20 years of GS with early recycling vs phenotypic selection, 30 replicates.</td><td>Fig4B_multicycle_summary.csv</td></tr>
+            <tr><td><a href="https://github.com/whussain2/GS-varieties-viewpoint/blob/main/code/Fig4_plot.R">code/Fig4_plot.R</a></td><td><b>Fig. 4.</b> Draws both panels.</td><td>figures/JXB_Fig4</td></tr>
+            <tr><td><a href="https://github.com/whussain2/GS-varieties-viewpoint/tree/main/figures_src">figures_src/</a></td><td><b>Figs 1–3.</b> HTML/SVG builders and the Playwright renderer.</td><td>figures/JXB_Fig1–3</td></tr>
+          </tbody>
+        </table>
+        <div class="run reveal">
+          <div class="run__box"><h3>Run the simulations in R</h3>
+<pre><span class="c"># install.packages(c("rrBLUP","BGLR","jsonlite","ggplot2","patchwork"))</span>
+setwd("code")
+source("Fig1_Fig2_simulate_program.R")
+source("Box1_100_replicate_programmes.R")
+source("Fig3C_allele_frequency_sim.R")
+source("Fig4A_selection_curves.R")
+source("Fig4B_multicycle_GS_vs_PS.R")
+source("Fig4_plot.R")</pre></div>
+          <div class="run__box"><h3>Render Figs 1–3</h3>
+<pre><span class="c"># Python 3 + Playwright (Chromium)</span>
+cd figures_src
+python3 build_fig1.py
+python3 build_fig2.py
+python3 render.py "$PWD/Fig1_composite.html" \
+        "$PWD/../figures/JXB_Fig1"
+<span class="c"># likewise for Fig2_ and Fig3_composite.html</span></pre></div>
+        </div>
+        <p class="versions reveal">R 4.3.3 · rrBLUP 4.6.3 · BGLR 1.1.4 · ggplot2 4.0.3 · code under the MIT License</p>
+        <div class="cite reveal"><b>Cite.</b> Hussain W, Nandigam VK. Counting varieties misjudges genomic selection: what it delivers, and when. <i>Journal of Experimental Botany</i> (submitted). Code and data: github.com/whussain2/GS-varieties-viewpoint</div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <footer class="site-footer">
+        <span>© <span data-year>2026</span> Dr. Waseem Hussain. Built with purpose.</span>
+        <div class="site-footer__links">
+          <a href="https://whussain2.github.io/">Home</a>
+          <a href="https://github.com/whussain2" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://plantnura.com/" target="_blank" rel="noopener">PlantNura</a>
+        </div>
+      </footer>
+    </section>
+  </main>
+</div>
+<script src="assets/js/founder.js" defer></script>
+</body>
+</html>

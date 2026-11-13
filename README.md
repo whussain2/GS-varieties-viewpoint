@@ -1,12 +1,14 @@
 # Counting varieties misjudges genomic selection: what it delivers, and when
 
-R and Python source code and simulated data for the Viewpoint by **Waseem Hussain** and **Vinay Kumar Nandigam** (PlantNura Consulting & Solutions LLP), submitted to *Journal of Experimental Botany*.
+Code and simulated data for the Viewpoint by **Waseem Hussain** and **Vinay Kumar Nandigam** (PlantNura Consulting & Solutions LLP), submitted to *Journal of Experimental Botany*.
+
+**Project page:** https://whussain2.github.io/GS-varieties-viewpoint/
 
 > Genomic selection (GS) does not make varieties, and it is not meant to. Its job is to discard poor lines early, using prediction from a mixed model that borrows information from relatives through marker-based covariance, and to recycle better parents faster. Its product is a better breeding population, which supplies product development, where varieties are identified in the field.
 
-## Contents
+## What is in this repository
 
-| Script | Reproduces | Output |
+| Folder / script | Reproduces | Output |
 |---|---|---|
 | `code/Fig1_Fig2_simulate_program.R` | One simulated program, start to finish (Box 1; Figs 1 and 2): crosses → F5 lines → SNPs → **G** matrix → CDmean training set → multi-location trial → RR-BLUP, GBLUP, BayesB → ranked GEBVs | `Fig1_data.json`, `Fig1_*.csv` |
 | `code/Box1_100_replicate_programmes.R` | The 100-program statistics quoted in the text (shrinkage, reliability, realized accuracy across and within families, selection outcomes) | `Box1_100_replicates*.csv` |
@@ -14,9 +16,10 @@ R and Python source code and simulated data for the Viewpoint by **Waseem Hussai
 | `code/Fig4A_selection_curves.R` | Selection on a criterion of accuracy *r*: a good set is kept, the best line rarely (Fig. 4A) | `Fig4A_selection_curves.csv` |
 | `code/Fig4B_multicycle_GS_vs_PS.R` | 20-year simulation, GS with early recycling vs phenotypic selection, 30 replicates (Fig. 4B) | `Fig4B_multicycle_summary.csv` |
 | `code/Fig4_plot.R` | Draws Fig. 4 | `figures/JXB_Fig4.pdf/.png` |
-| `figures_src/build_fig1.py`, `build_fig2.py`, `render.py` | Compose Figs 1–3 as HTML/SVG from the simulated data and render them to PDF/PNG | `figures/JXB_Fig1–3` |
+| `figures_src/build_fig1.py`, `build_fig2.py`, `render.py` | Builds Figs 1–3 as HTML/SVG from the simulated data and renders them to PDF/PNG | `figures/JXB_Fig1–3` |
+| `figures/` | Final figures as submitted | |
 
-All simulations are seeded and written in plain base R so that each step can be read and followed, with **rrBLUP** for REML and RR-BLUP, **BGLR** for BayesB, and **ggplot2**/**patchwork** for Fig. 4. Only the summary tables behind the numbers quoted in the paper are stored in `code/`; every other output (genotypes, **G** matrix, field trial, GEBVs, per-replicate results, allele frequencies) is regenerated exactly by the seeded scripts. Run the R scripts before the Python figure scripts.
+All simulations are written in plain base R so that each step can be read and followed, with **rrBLUP** for REML and RR-BLUP, **BGLR** for BayesB, and **ggplot2**/**patchwork** for Fig. 4.
 
 ## How to reproduce
 
@@ -26,7 +29,7 @@ setwd("code")
 source("Fig1_Fig2_simulate_program.R")
 source("Box1_100_replicate_programmes.R")
 source("Fig3C_allele_frequency_sim.R")
-source("Fig4A_selection_curves.R")
+source("Fig4A_selection_curves.R")    
 source("Fig4B_multicycle_GS_vs_PS.R")
 source("Fig4_plot.R")
 ```
@@ -53,4 +56,7 @@ Hussain W, Nandigam VK. Counting varieties misjudges genomic selection: what it 
 
 ## License
 
-Code is released under the MIT License (see `LICENSE`). Simulated data may be reused with attribution.
+Code is released under the MIT License (see `LICENSE`). Simulated data and figures may be reused with attribution.
+
+---
+Maintained by [Dr. Waseem Hussain](https://whussain2.github.io/) · [PlantNura](https://plantnura.com/)

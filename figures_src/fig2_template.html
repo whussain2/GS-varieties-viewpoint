@@ -1,0 +1,120 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  :root { --teal:#0F766E; --teal-xl:#F0FDFA; --teal-l:#99F6E4; --orange:#C2410C; --orange-xl:#FFF7ED; --orange-l:#FED7AA;
+          --slate:#334155; --mute:#64748B; --line:#E2E8F0; --ink:#0F172A; }
+  * { box-sizing:border-box; }
+  body { margin:0; width:180mm; font-family:Inter, sans-serif; color:var(--slate); background:#fff; }
+  .page { padding:2.5mm; }
+  .part { display:flex; align-items:baseline; gap:2mm; margin:0 0 1.4mm 0; }
+  .pn { font-size:8.5px; font-weight:800; letter-spacing:.14em; color:#fff; background:var(--ink); border-radius:4px; padding:.5mm 1.6mm; }
+  .pt { font-size:12.3px; font-weight:800; color:var(--ink); }
+  .row { display:grid; gap:2mm; margin-bottom:3mm; }
+  .card { border:1px solid var(--line); border-radius:7px; padding:1.8mm 2.2mm; position:relative; }
+  .tag { font-weight:800; font-size:14.6px; color:var(--ink); margin-right:1.5mm; }
+  .ct { font-size:10.8px; font-weight:800; color:var(--ink); }
+  .cs { font-size:8.1px; color:var(--mute); margin:.3mm 0 1.2mm 0; line-height:1.35; }
+  .eng { border-radius:8px; padding:2.2mm 2.6mm; }
+  .pi { background:var(--teal-xl); border:1.2px solid var(--teal-l); }
+  .pd { background:var(--orange-xl); border:1.2px solid var(--orange-l); }
+  .et { font-size:11.8px; font-weight:800; letter-spacing:.02em; }
+  .eq { font-family:"STIX Two Text", Cambria, serif; font-size:16.8px; color:var(--ink); text-align:center; margin:1.2mm 0 1.4mm 0; }
+  .why { display:grid; grid-template-columns: 9mm 1fr; gap:1mm 2mm; font-size:8.4px; line-height:1.38; align-items:start; }
+  .why .k { font-family:"STIX Two Text", Cambria, serif; font-size:13.4px; font-weight:700; color:var(--teal); text-align:center; line-height:1.1; }
+  .why b { color:var(--ink); }
+  table.st { width:100%; border-collapse:separate; border-spacing:0 1.3mm; font-size:8.3px; }
+  table.st td { padding:1.1mm 1.6mm; vertical-align:middle; }
+  table.st td.bar { color:#7C2D12; font-weight:800; border-radius:4px 0 0 4px; }
+  table.st td.n { font-weight:800; color:var(--ink); text-align:right; font-variant-numeric:tabular-nums; }
+  table.st td.d { color:#475569; line-height:1.3; }
+  table.st th { font-size:7.4px; color:var(--mute); font-weight:700; text-align:left; padding:0 1.6mm; }
+  .mid { display:flex; flex-direction:column; justify-content:center; gap:3mm; align-items:center; text-align:center; font-size:7.8px; font-weight:700; line-height:1.25; }
+  .banner { margin-top:2.2mm; background:var(--ink); color:#fff; border-radius:6px; padding:1.7mm 3mm; font-size:9.9px; font-weight:600; text-align:center; }
+  .banner b { color:#5EEAD4; } .banner i { color:#FDBA74; font-style:normal; font-weight:700; }
+  .chip { display:inline-block; font-size:7.8px; font-weight:800; color:#fff; border-radius:8px; padding:.4mm 1.8mm; }
+</style></head>
+<body><div class="page">
+
+<div class="part"><span class="pn">PART 1</span><span class="pt">The genetics behind the scenes: selection raises the frequency of good alleles</span></div>
+<div class="row" style="grid-template-columns: 1.55fr 0.75fr; margin-bottom:2mm">
+  <div class="card"><div><span class="tag">A</span><span class="ct">A population of diploid plants</span></div>
+    <div class="cs">Yield depends on hundreds of loci across the genome (six shown). Each plant carries a different mix of alleles that raise (+) or lower (−) yield, and none carries them all.</div>{{A}}</div>
+  <div class="card" style="grid-row: span 2"><div><span class="tag">C</span><span class="ct">Repeat, cycle after cycle</span></div>
+    <div class="cs">Selection shifts the frequency of + alleles a little each cycle (simulation: 200 loci, 20 parents per cycle).</div>{{C}}</div>
+  <div class="card"><div><span class="tag">B</span><span class="ct">Cross the best and let recombination work</span></div>
+    <div class="cs">Breeders select the plants with the most + alleles as parents. Crossovers create new combinations, a few better than either parent, but only by chance.</div>{{B}}</div>
+</div>
+
+<div class="part"><span class="pn">PART 2</span><span class="pt">The breeding program: two engines, and where genomic selection fits</span></div>
+<div class="card" style="padding:2.2mm"><div style="margin-bottom:1.4mm"><span class="tag">D</span><span class="ct">Population improvement feeds product development every cycle, and does not wait for it</span></div>
+<div style="display:grid; grid-template-columns: 1fr 19mm 1.08fr; align-items:stretch">
+
+  <!-- POPULATION IMPROVEMENT -->
+  <div class="eng pi">
+    <div class="et" style="color:var(--teal)">POPULATION IMPROVEMENT</div>
+    <div class="cs" style="margin-bottom:.6mm">Goal: raise the frequency of + alleles, as fast as possible. Output: better parents.</div>
+    <svg viewBox="0 0 300 150" width="100%" font-family="Inter" style="display:block">
+      <defs><marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0F766E"/></marker></defs>
+      <ellipse cx="150" cy="75" rx="96" ry="52" fill="none" stroke="#0F766E" stroke-width="1.6" opacity="0.25"/>
+      <path d="M118 25 A96 52 0 0 1 228 45" fill="none" stroke="#0F766E" stroke-width="2" marker-end="url(#ah)"/>
+      <path d="M244 88 A96 52 0 0 1 200 122" fill="none" stroke="#0F766E" stroke-width="2" marker-end="url(#ah)"/>
+      <path d="M100 124 A96 52 0 0 1 56 92" fill="none" stroke="#0F766E" stroke-width="2" marker-end="url(#ah)"/>
+      <path d="M58 52 A96 52 0 0 1 86 30" fill="none" stroke="#0F766E" stroke-width="2" marker-end="url(#ah)"/>
+      <text x="150" y="70" text-anchor="middle" font-size="15" font-weight="800" fill="#0F766E">1–1.5 yr</text>
+      <text x="150" y="83" text-anchor="middle" font-size="8" fill="#475569">per cycle with GS</text>
+      <text x="150" y="94" text-anchor="middle" font-size="7.2" fill="#64748B">(4–5 yr if parents come from yield trials)</text>
+      <g font-size="8.2" font-weight="700" fill="#0F172A">
+        <rect x="96" y="4" width="108" height="30" rx="8" fill="#fff" stroke="#99F6E4"/><text x="150" y="16" text-anchor="middle">Crossing block</text><text x="150" y="27" text-anchor="middle" font-weight="500" font-size="7" fill="#475569">elite parents × elite parents</text>
+        <rect x="214" y="48" width="84" height="38" rx="8" fill="#fff" stroke="#99F6E4"/><text x="256" y="60" text-anchor="middle">Fast generations</text><text x="256" y="71" text-anchor="middle" font-weight="500" font-size="7" fill="#475569">F2→F4 by rapid</text><text x="256" y="80" text-anchor="middle" font-weight="500" font-size="7" fill="#475569">advance or DH</text>
+        <rect x="150" y="114" width="122" height="32" rx="8" fill="#0F766E"/><text x="211" y="127" text-anchor="middle" fill="#fff">Genotype + predict GEBVs</text><text x="211" y="139" text-anchor="middle" font-weight="500" font-size="7" fill="#CCFBF1">thousands of lines, no yield plots</text>
+        <rect x="4" y="96" width="112" height="32" rx="8" fill="#fff" stroke="#0F766E" stroke-width="1.4"/><text x="60" y="109" text-anchor="middle">Select best GEBVs</text><text x="60" y="120" text-anchor="middle" font-weight="500" font-size="7" fill="#475569">as next parents</text>
+        <rect x="2" y="40" width="70" height="22" rx="8" fill="#fff" stroke="#99F6E4"/><text x="37" y="54" text-anchor="middle" font-size="7.6">Recycle</text>
+      </g>
+    </svg>
+    <div style="border-top:1px dashed #99F6E4; margin-top:1mm; padding-top:1.2mm">
+      <div style="font-size:9.4px; font-weight:800; color:var(--teal)">Why GS belongs here</div>
+      <div class="eq">Δ<i>G</i> per year = <i>i</i> · <i>r</i> · σ<sub>A</sub> / <i>L</i></div>
+      <div class="why">
+        <div class="k">i ↑</div><div><b>Finds high breeding-value lines</b> among thousands of untested lines: genotyping a line costs less than a yield plot, so more candidates and stronger selection.</div>
+        <div class="k">r</div><div><b>Higher than visual or single-plot selection</b> of early-generation lines for a low-heritability trait like yield, though usually lower than replicated yield trials. The net gain comes through <i>i</i> and <i>L</i>.</div>
+        <div class="k">L ↓</div><div><b>Shorter cycle:</b> parents are chosen before yield testing, so the + alleles are recombined again sooner.</div>
+        <div class="k" style="color:#64748B">σ<sub>A</sub></div><div style="color:#475569">Keep enough parents per cycle, or good alleles are lost by chance (panel C).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKS -->
+  <div class="mid">
+    <div style="color:var(--orange)">best fixed lines,<br>every cycle
+      <svg width="17mm" height="4mm" viewBox="0 0 64 16" style="display:block;margin:.6mm auto 0"><defs><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#C2410C"/></marker></defs><line x1="2" y1="8" x2="56" y2="8" stroke="#C2410C" stroke-width="2.6" marker-end="url(#ao)"/></svg></div>
+    <div style="color:var(--teal)">
+      <svg width="17mm" height="4mm" viewBox="0 0 64 16" style="display:block;margin:0 auto .6mm"><defs><marker id="at" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0F766E"/></marker></defs><line x1="62" y1="8" x2="8" y2="8" stroke="#0F766E" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#at)"/></svg>
+      trial data<br>retrain the<br>GS model</div>
+    <div style="color:var(--teal)">
+      <svg width="17mm" height="4mm" viewBox="0 0 64 16" style="display:block;margin:0 auto .6mm"><line x1="62" y1="8" x2="8" y2="8" stroke="#0F766E" stroke-width="2" marker-end="url(#at)"/></svg>
+      elite tested<br>lines return<br>as parents</div>
+  </div>
+
+  <!-- PRODUCT DEVELOPMENT -->
+  <div class="eng pd">
+    <div class="et" style="color:var(--orange)">PRODUCT DEVELOPMENT</div>
+    <div class="cs" style="margin-bottom:.4mm">Goal: find the fixed line that performs best for farmers in the target population of environments (TPE). Output: a variety.</div>
+    <table class="st">
+      <tr><th>Stage</th><th style="text-align:right">lines</th><th>how tested (typical)</th></tr>
+      <tr><td class="bar" style="background:#FED7AA; width:44%">1 · Observational / preliminary trial</td><td class="n">~1,000</td><td class="d">1–2 sites, unreplicated; year 1</td></tr>
+      <tr><td class="bar" style="background:#FDBA74; width:44%">2 · Advanced yield trial</td><td class="n">~150</td><td class="d">3–5 sites, replicated, with checks; year 2</td></tr>
+      <tr><td class="bar" style="background:#FB923C; color:#fff">3 · Multi-environment trials in the TPE</td><td class="n">~15</td><td class="d">8–15 sites, 2–3 seasons, vs. checks; years 3–4</td></tr>
+      <tr><td class="bar" style="background:#EA580C; color:#fff">4 · National / registration trials</td><td class="n">2–3</td><td class="d">official trials, DUS; years 5–6</td></tr>
+      <tr><td class="bar" style="background:#C2410C; color:#fff">Release</td><td class="n">1</td><td class="d">seed multiplication, adoption</td></tr>
+    </table>
+    <div style="border-top:1px dashed #FED7AA; padding-top:1.2mm; font-size:8.4px; line-height:1.4">
+      <div style="font-size:9.4px; font-weight:800; color:var(--orange); margin-bottom:.6mm">What decides a variety</div>
+      Yield against <b style="color:#0F172A">checks</b> across the TPE, <b style="color:#0F172A">stability and G×E</b>, grain quality, disease and stress tolerance, and registration rules. These are judged on a fixed line's own field performance across the TPE. GEBVs can help cull lines at stage 1, but the release decision rests on field trials.
+    </div>
+  </div>
+</div>
+<div class="banner">Genomic selection's job is in <b>population improvement</b>: rank parents, cut cycle time, raise good-allele frequency. <i>Product development</i> identifies the variety, in the field.</div>
+<div style="font-size:7.4px; color:#64748B; text-align:right; margin-top:.8mm">Stage sizes and durations are typical of public inbred-crop programs and vary by crop. Concept after Gaynor et al. (2017), Cobb et al. (2019), Covarrubias-Pazaran et al. (2022).</div>
+</div>
+
+</div></body></html>
