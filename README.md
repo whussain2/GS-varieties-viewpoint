@@ -1,16 +1,18 @@
 # Counting varieties misjudges genomic selection: what it delivers, and when
 
-Code and simulated data for the Viewpoint by **Waseem Hussain** and **Vinay Kumar Nandigam** (PlantNura Consulting & Solutions LLP), submitted to *Journal of Experimental Botany*.
+Code and simulated data for the Expert View by **Waseem Hussain** and **Vinay Kumar Nandigam** (PlantNura Consulting & Solutions LLP), submitted as an Expert View to *Journal of Experimental Botany*.
 
 **Project page:** https://whussain2.github.io/GS-varieties-viewpoint/
 
 > Genomic selection (GS) does not make varieties, and it is not meant to. Its job is to discard poor lines early, using prediction from a mixed model that borrows information from relatives through marker-based covariance, and to recycle better parents faster. Its product is a better breeding population, which supplies product development, where varieties are identified in the field.
 
+> **Figure numbering in the published Expert View.** Script and file names below follow the numbering used while the paper was drafted. In the final article: **Fig. 3** (selection curves; 20-year GS vs phenotypic selection) is produced by `code/Fig4A_selection_curves.R`, `code/Fig4B_multicycle_GS_vs_PS.R` and `code/Fig4_plot.R`; **Fig. 4** (alleles, recombination and the two breeding engines) is produced by `code/Fig3C_allele_frequency_sim.R` and `figures_src/build_fig2.py` with `fig2_template.html`. The files in `figures/` carry the final numbering. The worked example behind Figs 1 and 2 is given in full in Supplementary Text S1 of the article.
+
 ## What is in this repository
 
 | Folder / script | Reproduces | Output |
 |---|---|---|
-| `code/Fig1_Fig2_simulate_program.R` | One simulated program, start to finish (Box 1; Figs 1 and 2): crosses → F5 lines → SNPs → **G** matrix → CDmean training set → multi-location trial → RR-BLUP, GBLUP, BayesB → ranked GEBVs | `Fig1_data.json`, `Fig1_*.csv` |
+| `code/Fig1_Fig2_simulate_program.R` | One simulated program, start to finish (Figs 1 and 2; Supplementary Text S1): crosses → F5 lines → SNPs → **G** matrix → CDmean training set → multi-location trial → RR-BLUP, GBLUP, BayesB → ranked GEBVs | `Fig1_data.json`, `Fig1_*.csv` |
 | `code/Box1_100_replicate_programmes.R` | The 100-program statistics quoted in the text (shrinkage, reliability, realized accuracy across and within families, selection outcomes) | `Box1_100_replicates*.csv` |
 | `code/Fig3C_allele_frequency_sim.R` | Favorable-allele frequencies under recurrent selection (Fig. 3C) | `Fig3C_*.csv` |
 | `code/Fig4A_selection_curves.R` | Selection on a criterion of accuracy *r*: a good set is kept, the best line rarely (Fig. 4A) | `Fig4A_selection_curves.csv` |
